@@ -33,7 +33,7 @@
 
 (defun earthly-build-font-lock-keywords ()
   (list
-    `(,(rx (*? "\\s") (eval `(or ,@earthly-keywords)) (*? "\\s"))
+    `(,(rx (*? "[[:space:]]") (eval `(or ,@earthly-keywords)) (*? "[[::space:]]"))
       .
       font-lock-keyword-face)
     `(,(rx
