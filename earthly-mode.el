@@ -29,7 +29,7 @@
 
 (defun earthly-build-font-lock-keywords ()
   (list
-    `(,(rx (*? "[[:space:]]") (eval `(or ,@earthly-keywords)) (*? "[[::space:]]"))
+    `(,(rx line-start (*? space) (eval `(or ,@earthly-keywords)) (*? space))
       .
       font-lock-keyword-face)
     `(,(rx
