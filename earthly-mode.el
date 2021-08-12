@@ -1,3 +1,5 @@
+;;; earthly-mode.el --- Major mode for editing Earthly Earthfile. -*- lexical-binding: t -*-
+
 (defconst earthly-keywords
   '("FROM"
     "RUN"
@@ -50,7 +52,7 @@
   "Syntax table for `earthly-mode'.")
 
 (define-derived-mode earthly-mode prog-mode "Earthly"
-  "A major mode for Earthly Earthfile."
+  "A major mode for editing Earthly Earthfile."
   :syntax-table earthly-syntax-table
   (setq-local comment-start "#")
   (setq-local comment-end "")
