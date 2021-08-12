@@ -35,7 +35,13 @@
   (list
     `(,(rx (*? "\\s") (eval `(or ,@earthly-keywords)) (*? "\\s"))
       .
-      font-lock-keyword-face)))
+      font-lock-keyword-face)
+    `(,(rx
+	(sequence "$" (? "{")
+		  (+ (in (?A . ?Z) (?a . ?z) (?0 . ?9) ?- ?_))
+		  (? "}")))
+      .
+      font-lock-variable-name-face)))
 
 (defvar earthly-syntax-table
   (let ((syntax-table (make-syntax-table)))
