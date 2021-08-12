@@ -26,8 +26,7 @@
     "LOCALLY"
     "COMMAND"
     "DO"
-    "IMPORT"
-    ))
+    "IMPORT"))
 
 (defun earthly-build-font-lock-keywords ()
   (list
