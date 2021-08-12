@@ -19,7 +19,7 @@
     "HEALTHCHECK NONE"
     "HEALTHCHECK CMD"
     "FROM DOCKERFILE"
-    "WITH DOCKERFILE"
+    "WITH DOCKER"
     "IF"
     ;; For loop
     "FOR"
