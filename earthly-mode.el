@@ -40,7 +40,10 @@
 		  (+ (in (?A . ?Z) (?a . ?z) (?0 . ?9) ?- ?_))
 		  (? "}")))
       .
-      font-lock-variable-name-face)))
+      font-lock-variable-name-face)
+    `(,(rx line-start (*? space) (group "FOR") word-boundary (*? (regex ".")) word-boundary (group "IN") word-boundary)
+      (1 font-lock-keyword-face)
+      (2 font-lock-keyword-face))))
 
 (defvar earthly-syntax-table
   (let ((syntax-table (make-syntax-table)))
