@@ -1,2 +1,23 @@
 # earthly-mode
-Major mode for Earthly Earthfile (https://docs.earthly.dev/docs/earthfile)
+
+Major mode for editing Earthly Earthfile (https://docs.earthly.dev/docs/earthfile)
+
+## Current features
+
+* Syntax highlighting support.
+* Toggle comment.
+
+## Installation
+
+Add this major mode to `load-path` using `add-to-list`:
+
+```
+(add-to-list 'load-path "path/to/major/mode"
+```
+
+Or if you're using `use-package`, you can do:
+
+```
+(use-package
+  :ensure t)
+```
