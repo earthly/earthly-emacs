@@ -21,10 +21,6 @@
     "FROM DOCKERFILE"
     "WITH DOCKER"
     "IF"
-    ;; For loop
-    "FOR"
-    "IN"
-    ;; END For loop
     "LOCALLY"
     "COMMAND"
     "DO"
