@@ -41,5 +41,7 @@ Or if you use `use-package`, just add:
 ```elisp
 (use-package earthly-mode
   :ensure t
-  :mode "\\.earth\\'")
+  :mode (("\\.earth\\'" . earthly-mode)
+         ("\\Earthfile\\'" . earthly-mode)))
+
 ```
