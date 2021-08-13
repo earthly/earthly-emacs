@@ -43,5 +43,8 @@ Or if you use `use-package`, just add:
   :ensure t
   :mode (("\\.earth\\'" . earthly-mode)
          ("\\Earthfile\\'" . earthly-mode)))
-
 ```
+
+## Screenshot
+
+![Earthfile syntax](Screenshot.png)
