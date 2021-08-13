@@ -1,5 +1,14 @@
 ;;; earthly-mode.el --- Major mode for editing Earthly Earthfile. -*- lexical-binding: t -*-
 
+;; Author: Thanabodee Charoenpiriyakij <wingyminus@gmail.com>
+;; URL: https://github.com/wingyplus/earthly-mode
+;; Version: 0.1.0
+;; Package-Requires: ((emacs "24"))
+
+;; This file is not part of GNU Emacs.
+
+;;; Code:
+
 (defconst earthly-keywords
   '("FROM"
     "RUN"
