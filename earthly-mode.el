@@ -52,7 +52,12 @@
 		  (? "}")))
       .
       font-lock-variable-name-face)
+    ;; FOR .. IN ..
     `(,(rx line-start (*? space) (group "FOR") word-boundary (*? (regex ".")) word-boundary (group "IN") word-boundary)
+      (1 font-lock-keyword-face)
+      (2 font-lock-keyword-face))
+    ;; SAVE ARTIFACT .. AS LOCAL ..
+    `(,(rx line-start (*? space) (group "SAVE ARTIFACT") word-boundary (*? (regex ".")) word-boundary (group "AS LOCAL") word-boundary)
       (1 font-lock-keyword-face)
       (2 font-lock-keyword-face))))
 
