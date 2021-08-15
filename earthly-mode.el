@@ -47,18 +47,23 @@
 		 "COMMAND"
 		 "DO"
 		 "IMPORT"))
-      (* space)))
+      (* space))
+  "All Earthly keywords.")
 
 (defconst earthly-variable-regexp
-  (rx (sequence "$" (? "{") (+ (in (?A . ?Z) (?a . ?z) (?0 . ?9) ?- ?_)) (? "}"))))
+  (rx (sequence "$" (? "{") (+ (in (?A . ?Z) (?a . ?z) (?0 . ?9) ?- ?_)) (? "}")))
+  "Regular Expression for Earthly variable.")
 
 (defconst earthly-for-keyword-regexp
-  (rx line-start (* space) (group "FOR") word-boundary (*? (regex ".")) word-boundary (group "IN") word-boundary))
+  (rx line-start (* space) (group "FOR") word-boundary (*? (regex ".")) word-boundary (group "IN") word-boundary)
+  "Regular Expression for Earthly FOR .. IN syntax.")
 
 (defconst earthly-save-artifact-keyword-regexp
-  (rx line-start (* space) (group "SAVE ARTIFACT") word-boundary (*? (regex ".")) word-boundary (group "AS LOCAL") word-boundary))
+  (rx line-start (* space) (group "SAVE ARTIFACT") word-boundary (*? (regex ".")) word-boundary (group "AS LOCAL") word-boundary)
+  "Regular Expression for Earthly SAVE ARTIFACT .. AS LOCAL syntax.")
 
 (defun earthly-build-font-lock-keywords ()
+  "Build font lock for Earthly syntax."
   (list
     `(,earthly-keywords-regexp . font-lock-keyword-face)
     `(,earthly-variable-regexp . font-lock-variable-name-face)
