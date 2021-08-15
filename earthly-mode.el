@@ -14,57 +14,56 @@
 
 ;;; Code:
 
-(defconst earthly-keywords
-  '("FROM"
-    "RUN"
-    "COPY"
-    "ARG"
-    "SAVE ARTIFACT"
-    "SAVE IMAGE"
-    "BUILD"
-    "VERSION"
-    "GIT CLONE"
-    "CMD"
-    "LABEL"
-    "EXPOSE"
-    "ENV"
-    "ENTRYPOINT"
-    "VOLUME"
-    "USER"
-    "WORKDIR"
-    "HEALTHCHECK NONE"
-    "HEALTHCHECK CMD"
-    "FROM DOCKERFILE"
-    "WITH DOCKER"
-    "IF"
-    "ELSE"
-    "ELSE IF"
-    "FOR"
-    "END"
-    "LOCALLY"
-    "COMMAND"
-    "DO"
-    "IMPORT"))
+(defconst earthly-keywords-regexp
+  (rx line-start
+      (* space)
+      (eval `(or "FROM"
+		 "RUN"
+		 "COPY"
+		 "ARG"
+		 "SAVE ARTIFACT"
+		 "SAVE IMAGE"
+		 "BUILD"
+		 "VERSION"
+		 "GIT CLONE"
+		 "CMD"
+		 "LABEL"
+		 "EXPOSE"
+		 "ENV"
+		 "ENTRYPOINT"
+		 "VOLUME"
+		 "USER"
+		 "WORKDIR"
+		 "HEALTHCHECK NONE"
+		 "HEALTHCHECK CMD"
+		 "FROM DOCKERFILE"
+		 "WITH DOCKER"
+		 "IF"
+		 "ELSE"
+		 "ELSE IF"
+		 "FOR"
+		 "END"
+		 "LOCALLY"
+		 "COMMAND"
+		 "DO"
+		 "IMPORT"))
+      (* space)))
+
+(defconst earthly-variable-regexp
+  (rx (sequence "$" (? "{") (+ (in (?A . ?Z) (?a . ?z) (?0 . ?9) ?- ?_)) (? "}"))))
+
+(defconst earthly-for-keyword-regexp
+  (rx line-start (* space) (group "FOR") word-boundary (*? (regex ".")) word-boundary (group "IN") word-boundary))
+
+(defconst earthly-save-artifact-keyword-regexp
+  (rx line-start (* space) (group "SAVE ARTIFACT") word-boundary (*? (regex ".")) word-boundary (group "AS LOCAL") word-boundary))
 
 (defun earthly-build-font-lock-keywords ()
   (list
-    `(,(rx line-start (*? space) (eval `(or ,@earthly-keywords)) (*? space))
-      .
-      font-lock-keyword-face)
-    `(,(rx
-	(sequence "$" (? "{")
-		  (+ (in (?A . ?Z) (?a . ?z) (?0 . ?9) ?- ?_))
-		  (? "}")))
-      .
-      font-lock-variable-name-face)
-    ;; FOR .. IN ..
-    `(,(rx line-start (*? space) (group "FOR") word-boundary (*? (regex ".")) word-boundary (group "IN") word-boundary)
-      (1 font-lock-keyword-face)
-      (2 font-lock-keyword-face))
-    ;; SAVE ARTIFACT .. AS LOCAL ..
-    `(,(rx line-start (*? space) (group "SAVE ARTIFACT") word-boundary (*? (regex ".")) word-boundary (group "AS LOCAL") word-boundary)
-      (1 font-lock-keyword-face)
-      (2 font-lock-keyword-face))))
+    `(,earthly-keywords-regexp . font-lock-keyword-face)
+    `(,earthly-variable-regexp . font-lock-variable-name-face)
+    `(,earthly-for-keyword-regexp (1 font-lock-keyword-face) (2 font-lock-keyword-face))
+    `(,earthly-save-artifact-keyword-regexp (1 font-lock-keyword-face) (2 font-lock-keyword-face))))
 
 (defvar earthly-syntax-table
   (let ((syntax-table (make-syntax-table)))
