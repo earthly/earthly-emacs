@@ -1,11 +1,16 @@
-;;; earthly-mode.el --- Major mode for editing Earthly Earthfile. -*- lexical-binding: t -*-
+;;; earthly-mode.el --- Major mode for editing Earthly files. -*- lexical-binding: t -*-
 
 ;; Author: Thanabodee Charoenpiriyakij <wingyminus@gmail.com>
 ;; URL: https://github.com/wingyplus/earthly-mode
 ;; Version: 0.1.0
-;; Package-Requires: ((emacs "24"))
+;; Package-Requires: ((emacs "26"))
 
 ;; This file is not part of GNU Emacs.
+
+;;; Commentary:
+
+;; This package provides syntax highlight and toggle comment support
+;; for Earthly files.
 
 ;;; Code:
 
@@ -80,3 +85,5 @@
 (add-to-list 'auto-mode-alist '("Earthfile\\'" . earthly-mode))
 
 (provide 'earthly-mode)
+
+;;; earthly-mode.el ends here
