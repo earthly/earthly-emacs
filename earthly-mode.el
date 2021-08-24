@@ -47,7 +47,7 @@
 	  "COMMAND"
 	  "DO"
 	  "IMPORT")
-      (* space))
+      (or (+ space) line-end))
   "All Earthly keywords.")
 
 (defconst earthly-variable-regexp
