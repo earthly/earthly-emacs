@@ -86,7 +86,9 @@
   (setq-local comment-end "")
   (setq-local font-lock-defaults '(earthly-build-font-lock-keywords)))
 
-(add-to-list 'auto-mode-alist '("Earthfile" . earthly-mode))
+(progn
+  (add-to-list 'auto-mode-alist '("Earthfile" . earthly-mode))
+  (add-to-list 'auto-mode-alist '("\\.earth\\'" . earthly-mode)))
 
 (provide 'earthly-mode)
 
