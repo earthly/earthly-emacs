@@ -79,6 +79,7 @@
     syntax-table)
   "Syntax table for `earthly-mode'.")
 
+;;;###autoload
 (define-derived-mode earthly-mode prog-mode "Earthly"
   "A major mode for editing Earthly file."
   :syntax-table earthly-syntax-table
@@ -86,6 +87,7 @@
   (setq-local comment-end "")
   (setq-local font-lock-defaults '(earthly-build-font-lock-keywords)))
 
+;;;###autoload
 (progn
   (add-to-list 'auto-mode-alist '("Earthfile" . earthly-mode))
   (add-to-list 'auto-mode-alist '("\\.earth\\'" . earthly-mode)))
