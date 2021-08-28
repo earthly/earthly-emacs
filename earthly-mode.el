@@ -1,4 +1,4 @@
-;;; earthly-mode.el --- Major mode for editing Earthly files. -*- lexical-binding: t -*-
+;;; earthly-mode.el --- Major mode for editing Earthly file -*- lexical-binding: t -*-
 
 ;; Author: Thanabodee Charoenpiriyakij <wingyminus@gmail.com>
 ;; URL: https://github.com/wingyplus/earthly-mode
@@ -80,7 +80,7 @@
   "Syntax table for `earthly-mode'.")
 
 (define-derived-mode earthly-mode prog-mode "Earthly"
-  "A major mode for editing Earthly Earthfile."
+  "A major mode for editing Earthly file."
   :syntax-table earthly-syntax-table
   (setq-local comment-start "#")
   (setq-local comment-end "")
