@@ -15,7 +15,7 @@ by [@wingyplus](https://github.com/wingyplus), [@TheCoreMan](https://github.com/
 If you're using `use-package`, you can do:
 
 ```elisp
-(use-package
+(use-package earthly-mode
   :ensure t)
 ```
 
@@ -24,7 +24,7 @@ If you're using `use-package`, you can do:
 Add this major mode to `load-path` using `add-to-list`:
 
 ```elisp
-(add-to-list 'load-path "path/to/major/mode")
+(add-to-list 'load-path "path/to/earthly-mode")
 ```
 
 ## Screenshot
