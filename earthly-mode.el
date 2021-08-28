@@ -1,7 +1,7 @@
 ;;; earthly-mode.el --- Major mode for editing Earthly file -*- lexical-binding: t -*-
 
 ;; Author: Thanabodee Charoenpiriyakij <wingyminus@gmail.com>
-;; URL: https://github.com/wingyplus/earthly-mode
+;; URL: https://github.com/earthly/earthly-mode
 ;; Version: 0.1.0
 ;; Package-Requires: ((emacs "26"))
 
