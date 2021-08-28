@@ -1,7 +1,7 @@
 # earthly-mode
 
 Major mode for editing Earthly Earthfile (https://docs.earthly.dev/docs/earthfile) developed
-by @wingyplus, @TheCoreMan and @duck1123
+by [@wingyplus](https://github.com/wingyplus), [@TheCoreMan](https://github.com/TheCoreMan) and [@duck1123](https://github.com/duck1123)
 
 ## Current features
 
