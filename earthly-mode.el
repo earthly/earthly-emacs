@@ -4,6 +4,7 @@
 ;; URL: https://github.com/earthly/earthly-mode
 ;; Version: 0.1.0
 ;; Package-Requires: ((emacs "26"))
+;; SPDX-License-Identifier: MPL-2.0
 
 ;; This file is not part of GNU Emacs.
 
