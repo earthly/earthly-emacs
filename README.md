@@ -15,7 +15,7 @@ by [@wingyplus](https://github.com/wingyplus), [@TheCoreMan](https://github.com/
 If you're using `use-package`, you can do:
 
 ```elisp
-(use-package earthly-mode
+(use-package earthfile-mode
   :ensure t)
 ```
 
@@ -25,6 +25,7 @@ Add this major mode to `load-path` using `add-to-list`:
 
 ```elisp
 (add-to-list 'load-path "path/to/earthly-mode")
+(require 'earthfile-mode)
 ```
 
 ## Screenshot
