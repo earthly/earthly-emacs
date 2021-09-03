@@ -1,4 +1,4 @@
-;;; earthly-mode.el --- Major mode for editing Earthly file -*- lexical-binding: t -*-
+;;; earthfile-mode.el --- Major mode for editing Earthly file -*- lexical-binding: t -*-
 
 ;; Author: Thanabodee Charoenpiriyakij <wingyminus@gmail.com>
 ;; URL: https://github.com/earthly/earthly-mode
@@ -15,7 +15,7 @@
 
 ;;; Code:
 
-(defconst earthly-keywords-regexp
+(defconst earthfile-keywords-regexp
   (rx line-start
       (* space)
       (or "FROM"
@@ -49,50 +49,50 @@
 	  "DO"
 	  "IMPORT")
       (or (+ space) line-end))
-  "All Earthly keywords.")
+  "All Earthfile keywords.")
 
-(defconst earthly-variable-regexp
+(defconst earthfile-variable-regexp
   (rx (sequence "$" (? "{") (+ (in (?A . ?Z) (?a . ?z) (?0 . ?9) ?- ?_)) (? "}")))
-  "Regular Expression for Earthly variable.")
+  "Regular Expression for Earthfile variable.")
 
-(defconst earthly-for-keyword-regexp
+(defconst earthfile-for-keyword-regexp
   (rx line-start (* space) (group "FOR") word-boundary (*? (regex ".")) word-boundary (group "IN") word-boundary)
-  "Regular Expression for Earthly FOR .. IN syntax.")
+  "Regular Expression for Earthfile FOR .. IN syntax.")
 
-(defconst earthly-save-artifact-keyword-regexp
+(defconst earthfile-save-artifact-keyword-regexp
   (rx line-start (* space) (group "SAVE ARTIFACT") word-boundary (*? (regex ".")) word-boundary (group "AS LOCAL") word-boundary)
-  "Regular Expression for Earthly SAVE ARTIFACT .. AS LOCAL syntax.")
+  "Regular Expression for Earthfile SAVE ARTIFACT .. AS LOCAL syntax.")
 
-(defun earthly-build-font-lock-keywords ()
-  "Build font lock for Earthly syntax."
+(defun earthfile-build-font-lock-keywords ()
+  "Build font lock for Earthfile syntax."
   (list
-    `(,earthly-keywords-regexp . font-lock-keyword-face)
-    `(,earthly-variable-regexp . font-lock-variable-name-face)
-    `(,earthly-for-keyword-regexp (1 font-lock-keyword-face) (2 font-lock-keyword-face))
-    `(,earthly-save-artifact-keyword-regexp (1 font-lock-keyword-face) (2 font-lock-keyword-face))))
+    `(,earthfile-keywords-regexp . font-lock-keyword-face)
+    `(,earthfile-variable-regexp . font-lock-variable-name-face)
+    `(,earthfile-for-keyword-regexp (1 font-lock-keyword-face) (2 font-lock-keyword-face))
+    `(,earthfile-save-artifact-keyword-regexp (1 font-lock-keyword-face) (2 font-lock-keyword-face))))
 
-(defvar earthly-syntax-table
+(defvar earthfile-syntax-table
   (let ((syntax-table (make-syntax-table)))
     (modify-syntax-entry ?\# "<" syntax-table)
     (modify-syntax-entry ?\n ">" syntax-table)
     (modify-syntax-entry ?\" "\"" syntax-table)
     (modify-syntax-entry ?\' "\"" syntax-table)
     syntax-table)
-  "Syntax table for `earthly-mode'.")
+  "Syntax table for `earthfile-mode'.")
 
 ;;;###autoload
-(define-derived-mode earthly-mode prog-mode "Earthly"
-  "A major mode for editing Earthly file."
-  :syntax-table earthly-syntax-table
+(define-derived-mode earthfile-mode prog-mode "Earthfile"
+  "A major mode for editing Earthfile file."
+  :syntax-table earthfile-syntax-table
   (setq-local comment-start "#")
   (setq-local comment-end "")
-  (setq-local font-lock-defaults '(earthly-build-font-lock-keywords)))
+  (setq-local font-lock-defaults '(earthfile-build-font-lock-keywords)))
 
 ;;;###autoload
 (progn
-  (add-to-list 'auto-mode-alist '("Earthfile" . earthly-mode))
-  (add-to-list 'auto-mode-alist '("\\.earth\\'" . earthly-mode)))
+  (add-to-list 'auto-mode-alist '("Earthfile\\'" . earthfile-mode))
+  (add-to-list 'auto-mode-alist '("\\.earth\\'" . earthfile-mode)))
 
-(provide 'earthly-mode)
+(provide 'earthfile-mode)
 
-;;; earthly-mode.el ends here
+;;; earthfile-mode.el ends here
