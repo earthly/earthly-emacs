@@ -21,9 +21,17 @@ If you're using `use-package`, you can do:
   :ensure t)
 ```
 
-### Manual
+### Manually via MELPA
 
-Add this major mode to `load-path` using `add-to-list`:
+Just run this command in Emacs:
+
+```
+M-x package-install RET earthfile-mode RET
+```
+
+### Manual via local installation
+
+Add `earthfile-mode` to `load-path` using `add-to-list`:
 
 ```elisp
 (add-to-list 'load-path "path/to/earthfile-mode")
