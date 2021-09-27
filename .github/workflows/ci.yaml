@@ -1,0 +1,21 @@
+name: GitHub Action CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    name: +lint
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        emacs_version: ["26", "27"]
+    steps:
+      - uses: earthly/actions/setup-earthly@v1
+      - uses: actions/checkout@v2
+      - name: +lint
+        run: earthly --use-inline-cache +lint --EMACS_VERSION=${{ matrix.emacs_version }}
