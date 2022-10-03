@@ -21,6 +21,19 @@ If you're using `use-package`, you can do:
   :ensure t)
 ```
 
+### Doom emacs
+If you're using Doom emacs, you can add the following to `~/.doom.d/packages.el`:
+
+``` elisp
+(package! earthfile-mode)
+```
+
+Followed by the following shell command:
+
+``` shell
+~/.emacs.d/bin/doom sync
+```
+
 ### Manually via MELPA
 
 Just run this command in Emacs:
