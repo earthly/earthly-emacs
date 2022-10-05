@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        emacs_version: ["26", "27"]
+        emacs_version: ["26", "27", "28"]
     steps:
       - uses: earthly/actions/setup-earthly@v1
       - uses: actions/checkout@v2
