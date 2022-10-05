@@ -3,4 +3,4 @@ lint:
 	FROM silex/emacs:${EMACS_VERSION}-alpine-ci-eldev
 	WORKDIR /earthly-mode
 	COPY . /earthly-mode/
-	RUN eldev lint
+	RUN ~/.local/bin/eldev lint
