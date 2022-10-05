@@ -47,7 +47,10 @@
 	  "LOCALLY"
 	  "COMMAND"
 	  "DO"
-	  "IMPORT")
+	  "IMPORT"
+	  "PROJECT"
+	  "PIPELINE"
+	  "TRIGGER")
       (or (+ space) line-end))
   "All Earthfile keywords.")
 
