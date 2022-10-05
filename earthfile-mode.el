@@ -48,9 +48,9 @@
 	  "COMMAND"
 	  "DO"
 	  "IMPORT"
-      "PROJECT"
-      "PIPELINE"
-      "TRIGGER")
+	  "PROJECT"
+	  "PIPELINE"
+	  "TRIGGER")
       (or (+ space) line-end))
   "All Earthfile keywords.")
 
