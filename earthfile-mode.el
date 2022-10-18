@@ -50,7 +50,8 @@
 	  "IMPORT"
 	  "PROJECT"
 	  "PIPELINE"
-	  "TRIGGER")
+	  "TRIGGER"
+	  "CACHE")
       (or (+ space) line-end))
   "All Earthfile keywords.")
 
