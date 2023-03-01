@@ -1,3 +1,5 @@
+VERSION 0.7
+
 lint:
 	ARG EMACS_VERSION=26
 	FROM silex/emacs:${EMACS_VERSION}-alpine-ci-eldev

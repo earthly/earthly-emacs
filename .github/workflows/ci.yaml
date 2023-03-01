@@ -15,7 +15,9 @@ jobs:
       matrix:
         emacs_version: ["26", "27", "28"]
     steps:
-      - uses: earthly/actions/setup-earthly@v1
-      - uses: actions/checkout@v2
+      - uses: earthly/actions-setup@v1
+        with:
+          version: ^0.7
+      - uses: actions/checkout@v3
       - name: +lint
         run: earthly --use-inline-cache +lint --EMACS_VERSION=${{ matrix.emacs_version }}
