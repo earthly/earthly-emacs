@@ -51,7 +51,10 @@
 	  "PROJECT"
 	  "PIPELINE"
 	  "TRIGGER"
-	  "CACHE")
+	  "CACHE"
+	  "WAIT"
+	  "TRY"
+	  "FINALLY")
       (or (+ space) line-end))
   "All Earthfile keywords.")
 
