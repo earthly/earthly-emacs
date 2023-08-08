@@ -10,6 +10,13 @@ by [@wingyplus](https://github.com/wingyplus), [@TheCoreMan](https://github.com/
 * Syntax highlighting support.
 * Toggle comment.
 
+### Requirements
+For using:
+- emacs
+
+For testing changes:
+- [eldev](https://github.com/emacs-eldev/eldev) - used for linting
+
 ## Installation Notes
 
 ### use-package

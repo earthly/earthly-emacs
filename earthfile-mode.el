@@ -54,7 +54,16 @@
 	  "CACHE"
 	  "WAIT"
 	  "TRY"
-	  "FINALLY")
+	  "FINALLY"
+	  "DOCKER LOAD"
+	  "DOCKER PULL"
+	  "HOST"
+	  "SET"
+	  "LET"
+	  "ADD"
+	  "STOP SIGNAL"
+	  "ONBUILD"
+	  "SHELL")
       (or (+ space) line-end))
   "All Earthfile keywords.")
 
